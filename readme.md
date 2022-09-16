@@ -1,0 +1,1 @@
+Major parts of the code are not mine, just adapted from https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling
