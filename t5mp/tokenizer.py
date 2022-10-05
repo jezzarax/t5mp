@@ -6,7 +6,7 @@ from t5mp.t5_tokenizer_model import SentencePieceUnigramTokenizer
 
 @click.command("tokenizer")
 @click.option("--vocab-size", type=int, default=32000)
-@click.option("--name", default="t5mp")
+@click.option("--name", default="t5mumo")
 @click.option("--dataset-name", default="wikitext")
 @click.option("--dataset-config-name", default="wikitext-103-v1")
 def train_tokenizer(vocab_size, name, dataset_name, dataset_config_name):
