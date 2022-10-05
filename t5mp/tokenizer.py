@@ -1,5 +1,6 @@
 import datasets
 import click
+import os
 
 from t5mp.t5_tokenizer_model import SentencePieceUnigramTokenizer
 
@@ -10,6 +11,7 @@ from t5mp.t5_tokenizer_model import SentencePieceUnigramTokenizer
 @click.option("--dataset-name", default="wikitext")
 @click.option("--dataset-config-name", default="wikitext-103-v1")
 def train_tokenizer(vocab_size, name, dataset_name, dataset_config_name):
+    os.makedirs(f"./{name}", exist_ok=True)
     input_sentence_size = None
 
     # Initialize a dataset

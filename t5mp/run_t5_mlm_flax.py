@@ -25,6 +25,7 @@ import math
 import os
 import sys
 import time
+import click
 from dataclasses import asdict, dataclass, field
 
 # You can also adapt this script on your own masked language modeling task. Pointers for this are left as comments.
