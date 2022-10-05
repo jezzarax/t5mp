@@ -604,11 +604,10 @@ def write_eval_metric(summary_writer, eval_metrics, step):
 
 
 @click.command(
-    context_settings=dict(
-        ignore_unknown_options=True,
-    )
+    context_settings=dict(ignore_unknown_options=True, allow_extra_args=True)
 )
-def train_model():
+@click.argument("args", nargs=-1, type=click.UNPROCESSED)
+def train_model(args):
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
@@ -623,7 +622,9 @@ def train_model():
             json_file=os.path.abspath(sys.argv[1])
         )
     else:
-        model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+        model_args, data_args, training_args = parser.parse_args_into_dataclasses(
+            args=args
+        )
 
     if (
         os.path.exists(training_args.output_dir)
