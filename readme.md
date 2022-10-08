@@ -8,9 +8,9 @@ ptlm train-model \
  --tokenizer_name="./t5mumo" \
  --dataset_name="wikitext" \
  --dataset_config_name="wikitext-103-v1" \
- --max_seq_length="512" \
- --per_device_train_batch_size="32" \
- --per_device_eval_batch_size="32" \
+ --max_seq_length="128" \
+ --per_device_train_batch_size="8" \
+ --per_device_eval_batch_size="8" \
  --adafactor \
  --learning_rate="0.005" \
  --weight_decay="0.001" \
@@ -45,6 +45,6 @@ cd t5mp
 poetry env use 3.8
 poetry shell
 poetry install
-python -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+python -m pip install --upgrade torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 python -m pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 ```
