@@ -46,6 +46,9 @@ from flax import jax_utils, traverse_util
 from flax.jax_utils import pad_shard_unpad
 from flax.training import train_state
 from flax.training.common_utils import get_metrics, onehot, shard
+from jax.experimental.maps import Mesh
+from jax.experimental.pjit import pjit
+from t5mp.t5_partitions import set_partitions
 from huggingface_hub import Repository
 from transformers import (
     CONFIG_MAPPING,
